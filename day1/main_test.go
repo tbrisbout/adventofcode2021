@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 const testInput = `
 199
@@ -15,20 +18,20 @@ const testInput = `
 263
 	`
 
-func TestSolvePart1(t *testing.T) {
-	want := 7
-	got := solvePart1(testInput)
-
-	if got != want {
-		t.Errorf("got %d want %d", got, want)
+func TestCountIncrements(t *testing.T) {
+	var tests = []struct{ want, gap int }{
+		{7, 1},
+		{5, 3},
 	}
-}
 
-func TestSolvePart2(t *testing.T) {
-	want := 5
-	got := solvePart2(testInput)
+	for _, test := range tests {
+		t.Run(fmt.Sprintf("should return %d with gap %d", test.want, test.gap), func(t *testing.T) {
+			got := countIncrements(test.gap, parse(testInput))
 
-	if got != want {
-		t.Errorf("got %d want %d", got, want)
+			if got != test.want {
+				t.Errorf("got %q want %q", got, test.want)
+			}
+		})
 	}
+
 }
