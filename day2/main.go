@@ -10,13 +10,18 @@ func parse(data string) []string {
 	return strings.Split(strings.TrimSpace(data), "\n")
 }
 
+func parseCommand(command string) (string, int) {
+	c := strings.Split(command, " ")
+	dir := c[0]
+	n, _ := strconv.Atoi(c[1])
+	return dir, n
+}
+
 func solvePart1(data string) int {
 	var h, d int
 
 	for _, command := range parse(data) {
-		c := strings.Split(command, " ")
-		dir := c[0]
-		n, _ := strconv.Atoi(c[1])
+		dir, n := parseCommand(command)
 
 		switch dir {
 		case "forward":
@@ -35,9 +40,7 @@ func solvePart2(data string) int {
 	var h, d, a int
 
 	for _, command := range parse(data) {
-		c := strings.Split(command, " ")
-		dir := c[0]
-		n, _ := strconv.Atoi(c[1])
+		dir, n := parseCommand(command)
 
 		switch dir {
 		case "forward":
