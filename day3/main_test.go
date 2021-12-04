@@ -25,3 +25,12 @@ func TestSolvePart1(t *testing.T) {
 		t.Errorf("got %d want %d", got, want)
 	}
 }
+
+func TestSolvePart2(t *testing.T) {
+	want := 230
+	got := solvePart2(testInput)
+
+	if got != want {
+		t.Errorf("got %d want %d", got, want)
+	}
+}
