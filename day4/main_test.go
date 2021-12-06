@@ -106,11 +106,11 @@ func TestSolvePart1(t *testing.T) {
 	}
 }
 
-// func TestSolvePart2(t *testing.T) {
-// 	want := 1924
-// 	got := solvePart2(testInput)
+func TestSolvePart2(t *testing.T) {
+	want := 1924
+	got := solvePart2(testInput)
 
-// 	if got != want {
-// 		t.Errorf("got %d want %d", got, want)
-// 	}
-// }
+	if got != want {
+		t.Errorf("got %d want %d", got, want)
+	}
+}
